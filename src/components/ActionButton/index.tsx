@@ -43,6 +43,7 @@ export const ActionButton = () => {
     cursor: "pointer",
     height: "56px",
     width: "100%",
+    fontSize: "18px",
   };
 
   const disabled: CSSProperties = {

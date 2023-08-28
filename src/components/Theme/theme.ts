@@ -10,6 +10,7 @@ export interface Theme {
   colors: Colors;
   breakpoint: number;
   text: CSSProperties;
+  fontFamily: string;
 }
 
 const colors = {
@@ -24,4 +25,5 @@ export const theme: Theme = {
   text: {
     color: colors.text,
   },
+  fontFamily: '"DM Sans", sans-serif',
 };

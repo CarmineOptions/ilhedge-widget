@@ -4,13 +4,16 @@ import { useAccount } from "../../hooks/useAccount";
 import { Header } from "../Header";
 import { TokenPairOption } from "./Option";
 import { closeTokenSelectModal } from "../../redux/actions";
+import { useTheme } from "../../hooks/useTheme";
 
 export const ModalContent = () => {
   const account = useAccount();
+  const theme = useTheme();
+
   const containerStyle: CSSProperties = {
     display: "flex",
     flexFlow: "column",
-    fontFamily: '"DM Sans", sans-serif',
+    fontFamily: theme.fontFamily,
   };
 
   return (

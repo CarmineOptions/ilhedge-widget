@@ -63,6 +63,7 @@ export const TokenPairSelect = () => {
               justifyContent: "center",
               alignItems: "center",
               gap: "1em",
+              fontSize: "18px",
             }}
           >
             Select token

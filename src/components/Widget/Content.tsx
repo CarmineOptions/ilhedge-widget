@@ -6,6 +6,7 @@ import { closeModal, setAccount } from "../../redux/actions";
 import { Header } from "../Header";
 import { ActionButton } from "../ActionButton";
 import { BalanceDisplay } from "../BalanceDisplay";
+import { useTheme } from "../../hooks/useTheme";
 
 type WidgetProps = {
   account?: AccountInterface;
@@ -13,6 +14,7 @@ type WidgetProps = {
 
 export const Content = ({ account: propAccount }: WidgetProps) => {
   const account = useAccount();
+  const theme = useTheme();
 
   if (propAccount && !account) {
     setAccount(propAccount);
@@ -23,7 +25,7 @@ export const Content = ({ account: propAccount }: WidgetProps) => {
       style={{
         display: "flex",
         flexFlow: "column",
-        fontFamily: '"DM Sans", sans-serif',
+        fontFamily: theme.fontFamily,
       }}
     >
       <Header title="Impermanent Loss Hedging" close={closeModal} />
