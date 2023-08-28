@@ -1,0 +1,121 @@
+[
+  {
+    "type": "impl",
+    "name": "ILHedge",
+    "interface_name": "ilhedge::contract::IILHedge"
+  },
+  {
+    "type": "interface",
+    "name": "ilhedge::contract::IILHedge",
+    "items": [
+      {
+        "type": "function",
+        "name": "hedge",
+        "inputs": [
+          { "name": "notional", "type": "core::integer::u128" },
+          {
+            "name": "quote_token_addr",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "name": "base_token_addr",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          { "name": "expiry", "type": "core::integer::u64" }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+      },
+      {
+        "type": "function",
+        "name": "price_hedge",
+        "inputs": [
+          { "name": "notional", "type": "core::integer::u128" },
+          {
+            "name": "quote_token_addr",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "name": "base_token_addr",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          { "name": "expiry", "type": "core::integer::u64" }
+        ],
+        "outputs": [{ "type": "(core::integer::u128, core::integer::u128)" }],
+        "state_mutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "upgrade",
+        "inputs": [
+          {
+            "name": "impl_hash",
+            "type": "core::starknet::class_hash::ClassHash"
+          }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "ilhedge::contract::ILHedge::Event",
+    "kind": "enum",
+    "variants": []
+  },
+  {
+    "members": [
+      {
+        "name": "low",
+        "offset": 0,
+        "type": "felt"
+      },
+      {
+        "name": "high",
+        "offset": 1,
+        "type": "felt"
+      }
+    ],
+    "name": "Uint256",
+    "size": 2,
+    "type": "struct"
+  },
+  {
+    "inputs": [
+      {
+        "name": "spender",
+        "type": "felt"
+      },
+      {
+        "name": "amount",
+        "type": "Uint256"
+      }
+    ],
+    "name": "approve",
+    "outputs": [
+      {
+        "name": "success",
+        "type": "felt"
+      }
+    ],
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "name": "account",
+        "type": "felt"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "name": "balance",
+        "type": "Uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
