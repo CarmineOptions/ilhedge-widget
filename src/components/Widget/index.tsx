@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { store } from "../../redux/store";
 import { ThemeProvider } from "../Theme";
 
-type WidgetProps = {
+export type WidgetProps = {
   account?: AccountInterface;
 };
 

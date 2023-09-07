@@ -16,7 +16,8 @@ function App() {
     });
   };
 
-  const handleClick = () => window.dispatchEvent(new Event("ILHEDGE_OPEN"));
+  const handleClick = () =>
+    window.dispatchEvent(new Event("CARMINE_ILHEDGE_OPEN"));
 
   return (
     <div>

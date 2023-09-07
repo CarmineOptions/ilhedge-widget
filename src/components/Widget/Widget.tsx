@@ -14,7 +14,7 @@ export const Widget = ({ account }: WidgetProps) => {
   const open = useModalOpen();
   const theme = useTheme();
   useEffect(() => {
-    window.addEventListener("ILHEDGE_OPEN", openModal);
+    window.addEventListener("CARMINE_ILHEDGE_OPEN", openModal);
   }, []);
 
   const content: CSSProperties = {
