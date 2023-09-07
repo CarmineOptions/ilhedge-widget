@@ -41,6 +41,8 @@ function App() {
       // optional
       account={account}
       parent={root}
+      overlayStyle={{ backgroundColor: "rgba(0,0,0,.5)" }}
+      contentStyle={{ top: "40%" }}
     />
   );
 }
@@ -55,6 +57,8 @@ Property _parent_ should be provided, this is the element on top of which the mo
 - `string` - either CSS selector or id of the element
 - `HTMLElement` - reference to the DOM element
 - `undefined` - if nothing is provided, the fallback value is `document.body`
+
+_overlayStyle_ and _contentStyle_ can be provided to change the styling. This feature is currently experimental, feel free to play around with it, but for production we advise to only use `overlayStyle={{ backgroundColor: "rgba(0,0,0,.5)" }}` to set modal backdrop opacity via the last number (`.5`) to make it a better fit for your dApp.
 
 To open the Widget, emit custom event `CARMINE_ILHEDGE_OPEN`. This is a simple implementation of a button that opens the Widget:
 

@@ -38,7 +38,12 @@ const getParentElement = (
   return document.body;
 };
 
-export const Widget = ({ account, parent }: WidgetProps) => {
+export const Widget = ({
+  account,
+  parent,
+  contentStyle,
+  overlayStyle,
+}: WidgetProps) => {
   const open = useModalOpen();
   const theme = useTheme();
   useEffect(() => {
@@ -61,8 +66,13 @@ export const Widget = ({ account, parent }: WidgetProps) => {
     borderColor: theme.colors.main,
   };
 
+  const overlay: CSSProperties = {
+    backgroundColor: "rgba(0,0,0,.5)",
+  };
+
   const customStyles = {
-    content,
+    content: { ...content, ...contentStyle },
+    overlay: { ...overlay, ...overlayStyle },
   };
 
   return (
