@@ -33,7 +33,7 @@ function App() {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button onClick={handleClick}>Open ILHedge Widget</Button>
         </div>
-        <ILHedgeWidget account={account} />
+        <ILHedgeWidget account={account} parent={"#root"} />
       </div>
     </div>
   );

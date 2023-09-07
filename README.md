@@ -29,11 +29,16 @@ import { CarmineILHedgeWidget } from "carmine-ilhedge-widget";
 
 function App() {
   const [account, setAccount] = useState<AccountInterface | undefined>();
+  // all root variables are valid parent
+  const root = document.getElementById("my-app");
+  const root1 = "my-app";
+  const root2 = "#my-app";
 
   return (
     <CarmineILHedgeWidget
       // optional
       account={account}
+      parent={root}
     />
   );
 }
@@ -42,6 +47,12 @@ ReactDOM.render(<App />, document.getElementById("my-app"));
 ```
 
 Providing _starknet account_ is optional, if it is not provided, user will be prompted to connect their wallet from the Widget.
+
+Property _parent_ should be provided, this is the element on top of which the modal will appear. Allowed values are
+
+- `string` - either CSS selector or id of the element
+- `HTMLElement` - reference to the DOM element
+- `undefined` - if nothing is provided, the fallback value is `document.body`
 
 To open the Widget, emit custom event `CARMINE_ILHEDGE_OPEN`. This is a simple implementation of a button that opens the Widget:
 

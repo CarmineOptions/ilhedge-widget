@@ -6,6 +6,7 @@ import { ThemeProvider } from "../Theme";
 
 export type WidgetProps = {
   account?: AccountInterface;
+  parent?: HTMLElement | string;
 };
 
 export const ILHedgeWidget = ({ account }: WidgetProps) => (

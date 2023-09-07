@@ -1,16 +1,44 @@
-import { AccountInterface } from "starknet";
 import { CSSProperties, useEffect } from "react";
 import Modal from "react-modal";
 import { Content } from "./Content";
 import { useTheme } from "../../hooks/useTheme";
 import { useModalOpen } from "../../hooks/useModalOpen";
 import { closeModal, openModal } from "../../redux/actions";
+import { WidgetProps } from ".";
 
-type WidgetProps = {
-  account?: AccountInterface;
+const getParentElement = (
+  target: HTMLElement | string | undefined
+): HTMLElement => {
+  const noop = () => {};
+  if (typeof target === "string") {
+    try {
+      // if string, try querySelector
+      const queryRes = document.querySelector(target);
+      if (queryRes) {
+        return queryRes as HTMLElement;
+      }
+      // if string and not querySelector try getElementById
+      const elById = document.getElementById(target);
+      if (elById) {
+        return elById as HTMLElement;
+      }
+    } catch {
+      noop();
+    }
+  }
+  try {
+    // check if HTMLElement and return it
+    if (target instanceof HTMLElement) {
+      return target;
+    }
+  } catch {
+    noop();
+  }
+  // as fallback use document.body
+  return document.body;
 };
 
-export const Widget = ({ account }: WidgetProps) => {
+export const Widget = ({ account, parent }: WidgetProps) => {
   const open = useModalOpen();
   const theme = useTheme();
   useEffect(() => {
@@ -41,7 +69,7 @@ export const Widget = ({ account }: WidgetProps) => {
     <Modal
       isOpen={open}
       onRequestClose={closeModal}
-      appElement={document.getElementById("root")!}
+      appElement={getParentElement(parent)}
       style={customStyles}
     >
       <Content account={account} />
