@@ -1,5 +1,7 @@
 # Carmine ILHedge Widget
 
+[![npm](https://img.shields.io/npm/v/carmine-ilhedge-widget)](https://www.npmjs.com/package/carmine-ilhedge-widget)
+
 DISCLAIMER: This is still a work in progress, please do not use it int production YET.
 
 Carmine ILHedge Widget allows users to protect themselves from Impremanent Loss. Read more about [Hedging Impermanent Loss](https://medium.com/@carminefinanceinfo/hedging-impermanent-loss-part-1-52c51846f3da).
@@ -8,7 +10,7 @@ Carmine ILHedge Widget allows users to protect themselves from Impremanent Loss.
 
 Carmine ILHedge Widget can be easily implemented as a React component.
 
-First install the `carmine-ilhedge-widget` [npm package]() which contains the React component.
+First install the `carmine-ilhedge-widget` [npm package](https://www.npmjs.com/package/carmine-ilhedge-widget) which contains the React component.
 
 Install the widget via `npm` or `yarn`.
 
