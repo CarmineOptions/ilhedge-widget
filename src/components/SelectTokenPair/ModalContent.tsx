@@ -27,7 +27,7 @@ export const ModalContent = () => {
           key={i}
         />
       ))}
-      <TokenPairOption type="text" text="More comming soon!" />
+      <TokenPairOption type="text" text="More coming soon!" />
     </div>
   );
 };

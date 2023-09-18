@@ -6,6 +6,9 @@ import { baseFromConvertedSize } from "../utils";
 const IL_HEDGE_ADDRESS =
   "0x008ac98d0bd56da03edc9224cad552c22e4db78500d40980e64fbe65d5fb6321";
 
+// TODO: remove hardcoded timestamp
+const EXPIRY_TIMESTAMP = 1698451199;
+
 const TestnetProvider = new Provider({
   sequencer: {
     network: constants.NetworkName.SN_GOERLI,
@@ -39,7 +42,7 @@ export const getHedgePrice = async (): Promise<HedgePrice | undefined> => {
     baseFromConvertedSize(state.notionalValue, pair.base.decimals),
     pair.quote.address,
     pair.base.address,
-    1693526399, // option expiry
+    EXPIRY_TIMESTAMP, // option expiry
   ];
 
   const contract = new Contract(ABI, IL_HEDGE_ADDRESS, TestnetProvider);
@@ -50,7 +53,8 @@ export const getHedgePrice = async (): Promise<HedgePrice | undefined> => {
       return undefined;
     });
 
-  console.log("price response:", res);
+  console.log("price_hedge calldata:", calldata);
+  console.log("price_hedge response:", res);
 
   return res;
 };
@@ -98,7 +102,7 @@ export const hedge = async () => {
       ),
       pair.quote.address,
       pair.base.address,
-      1693526399, // option expiry
+      EXPIRY_TIMESTAMP, // option expiry
     ],
   };
 
